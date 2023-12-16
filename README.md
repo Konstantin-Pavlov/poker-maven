@@ -26,7 +26,7 @@ test
 └── org
     └── example
         └── test
-            └── WinningCombinationsTest.java
+            └── WinningCombinationTest.java
 </pre>
 
 В этой схеме:
