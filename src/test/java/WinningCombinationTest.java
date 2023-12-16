@@ -1,15 +1,15 @@
 import org.example.cards.Card;
 import org.example.enums.Rank;
 import org.example.enums.Suit;
+import org.example.enums.WinningCombination;
 import org.junit.Test;
-import org.example.enums.WinningCombinations;
 
 import org.junit.Assert;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class WinningCombinationsTest {
+public class WinningCombinationTest {
 
     @Test
     public void isFlashRoyal() {
@@ -20,7 +20,7 @@ public class WinningCombinationsTest {
                 new Card(Suit.CLOVES, Rank.KING),
                 new Card(Suit.CLOVES, Rank.TEN))
         );
-        Assert.assertTrue(WinningCombinations.FLASH_ROYAL.check(cards));
+        Assert.assertTrue(WinningCombination.FLASH_ROYAL.check(cards));
     }
 
     @Test
@@ -32,7 +32,7 @@ public class WinningCombinationsTest {
                 new Card(Suit.TILES, Rank.NINE),
                 new Card(Suit.TILES, Rank.SIX))
         );
-        Assert.assertTrue(WinningCombinations.STREET_FLASH.check(cards));
+        Assert.assertTrue(WinningCombination.STREET_FLASH.check(cards));
     }
 
     @Test
@@ -44,7 +44,7 @@ public class WinningCombinationsTest {
                 new Card(Suit.TILES, Rank.QUEEN),
                 new Card(Suit.HEARTS, Rank.QUEEN))
         );
-        Assert.assertTrue(WinningCombinations.CARE.check(cards));
+        Assert.assertTrue(WinningCombination.CARE.check(cards));
     }
 
     @Test
@@ -56,7 +56,7 @@ public class WinningCombinationsTest {
                 new Card(Suit.TILES, Rank.JACK),
                 new Card(Suit.PIKES, Rank.TWO))
         );
-        Assert.assertTrue(WinningCombinations.FULL_HOUSE.check(cards));
+        Assert.assertTrue(WinningCombination.FULL_HOUSE.check(cards));
     }
 
     @Test
@@ -68,7 +68,7 @@ public class WinningCombinationsTest {
                 new Card(Suit.CLOVES, Rank.SEVEN),
                 new Card(Suit.CLOVES, Rank.EIGHT))
         );
-        Assert.assertTrue(WinningCombinations.FLASH.check(cards));
+        Assert.assertTrue(WinningCombination.FLASH.check(cards));
     }
 
     @Test
@@ -80,7 +80,7 @@ public class WinningCombinationsTest {
                 new Card(Suit.TILES, Rank.EIGHT),
                 new Card(Suit.HEARTS, Rank.SEVEN))
         );
-        Assert.assertTrue(WinningCombinations.STREET.check(cards));
+        Assert.assertTrue(WinningCombination.STREET.check(cards));
     }
 
     @Test
@@ -92,7 +92,7 @@ public class WinningCombinationsTest {
                 new Card(Suit.TILES, Rank.SEVEN),
                 new Card(Suit.HEARTS, Rank.SEVEN))
         );
-        Assert.assertTrue(WinningCombinations.THREE_OF_A_KIND.check(cards));
+        Assert.assertTrue(WinningCombination.THREE_OF_A_KIND.check(cards));
     }
 
     @Test
@@ -104,7 +104,7 @@ public class WinningCombinationsTest {
                 new Card(Suit.TILES, Rank.SEVEN),
                 new Card(Suit.HEARTS, Rank.THREE))
         );
-        Assert.assertTrue(WinningCombinations.TWO_PAIRS.check(cards));
+        Assert.assertTrue(WinningCombination.TWO_PAIRS.check(cards));
     }
 
     @Test
@@ -116,7 +116,7 @@ public class WinningCombinationsTest {
                 new Card(Suit.TILES, Rank.KING),
                 new Card(Suit.HEARTS, Rank.THREE))
         );
-        Assert.assertTrue(WinningCombinations.ONE_PAIR.check(cards));
+        Assert.assertTrue(WinningCombination.ONE_PAIR.check(cards));
     }
 
     @Test
@@ -128,6 +128,6 @@ public class WinningCombinationsTest {
                 new Card(Suit.TILES, Rank.FOUR),
                 new Card(Suit.HEARTS, Rank.THREE))
         );
-        Assert.assertTrue(WinningCombinations.HIGH_CARD.check(cards));
+        Assert.assertTrue(WinningCombination.HIGH_CARD.check(cards));
     }
 }
