@@ -1,16 +1,10 @@
 package org.example;
 
-import org.example.cards.Card;
-import org.example.enums.Rank;
-import org.example.enums.Suit;
+import org.example.enums.WinningCombination;
 import org.example.hand.Hand;
 import org.example.helper.Helper;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -20,6 +14,12 @@ public class Main {
         hand.showHand();
         helper.askToChangeCards(hand);
         hand.showHand();
+        WinningCombination combination = Arrays.stream(WinningCombination.values())
+                .sorted(Comparator.comparing(WinningCombination::getPriority))
+                .filter(x -> x.check(Arrays.asList(hand.handCards)))
+                .findFirst()
+                .orElseThrow(() -> new RuntimeException("combination not found for cards in hand" + Arrays.toString(hand.handCards)));
+        System.out.println(combination);
 
 
 /*        List<String> list = new ArrayList<>(Arrays.asList("a", "b", "c"));
