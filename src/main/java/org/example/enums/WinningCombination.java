@@ -130,13 +130,9 @@ public enum WinningCombination {
 
         @Override
         public boolean check(List<Card> handCards) {
-            return validHandCards(handCards) && findHighCard( handCards);
+            return validHandCards(handCards) && findHighCard(handCards);
         }
     };
-
-    public abstract int getPriority();
-
-    public abstract boolean check(List<Card> handCards);
 
     private static boolean validHandCards(List<Card> handCards) {
         if (handCards.isEmpty()) {
@@ -220,10 +216,14 @@ public enum WinningCombination {
                 .allMatch(i -> handCards.get(i + 1).getRank().ordinal() - handCards.get(i).getRank().ordinal() == 1);
     }
 
-    private static boolean findHighCard(List<Card> handCards){
+    private static boolean findHighCard(List<Card> handCards) {
         // сортировка по рангу
         handCards.sort(Comparator.comparing(Card::getRank));
         // если нашлась карта больше десятки, значит есть старшая карта
         return handCards.getLast().getRank().getPriority() > 10;
     }
+
+    public abstract int getPriority();
+
+    public abstract boolean check(List<Card> handCards);
 }
